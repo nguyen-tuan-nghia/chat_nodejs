@@ -54,7 +54,7 @@ export default {
     del(post){
       const url = "api/posts";
       this.axios
-        .delete(`${url}/${post.id}`)
+        .delete(`${url}/${post._id}`)
         .then((res) => {
           console.log(res.data);
         this.get();

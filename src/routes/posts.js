@@ -24,7 +24,7 @@ router.post('/', async(req, res) => {
 }
 })
 router.delete('/:id', async(req, res) => {
-  const data=await posts.findByIdAndRemove(req.params.id)
+  const data=await posts.findOneAndRemove({id:req.params.id})
   res.status(200).json(data);
 })
 
