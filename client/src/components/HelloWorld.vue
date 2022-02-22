@@ -6,7 +6,7 @@
     <ul v-for="(post, index) in posts" :key="index">
       <li>{{ post.createdAt }}</li>
       <li>{{ post.title }}</li>
-      <li @click="del(post)">delete</li>
+      <li :id="post._id" @click="del(post._id)">delete</li>
     </ul>
   </div>
 </template>
@@ -54,7 +54,7 @@ export default {
     del(post){
       const url = "api/posts";
       this.axios
-        .delete(`${url}/${post._id}`)
+        .delete(`${url}/${post}`)
         .then((res) => {
           console.log(res.data);
         this.get();
